@@ -1,9 +1,7 @@
 package arindahills.lab1.service;
 
-import arindahills.lab1.domain.User;
-import arindahills.lab1.domain.dto.response.PostDto;
-import arindahills.lab1.domain.dto.response.UserDto;
-import org.springframework.data.repository.query.Param;
+import arindahills.lab1.domain.dto.PostDto;
+import arindahills.lab1.domain.dto.UserDto;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package arindahills.lab1.controller;
 
-import arindahills.lab1.domain.Post;
-import arindahills.lab1.domain.dto.response.PostDto;
+import arindahills.lab1.domain.dto.PostDto;
 import arindahills.lab1.repository.PostRepo;
 import arindahills.lab1.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +29,9 @@ public List<PostDto> findAll(){
 }
 
 @GetMapping("/{id}")
-public PostDto getById(@PathVariable("id") long id){
-    return postService.findById(id);
+public ResponseEntity<PostDto> getById(@PathVariable("id") long id){
+    PostDto postDto = postService.findById(id);
+    return ResponseEntity.ok(postDto);
 }
 
 @PostMapping

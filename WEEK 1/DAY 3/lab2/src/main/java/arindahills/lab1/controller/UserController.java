@@ -1,9 +1,9 @@
 package arindahills.lab1.controller;
 
-import arindahills.lab1.domain.User;
-import arindahills.lab1.domain.dto.response.CommentDto;
-import arindahills.lab1.domain.dto.response.PostDto;
-import arindahills.lab1.domain.dto.response.UserDto;
+import arindahills.lab1.aop.annotation.ExecutionTime;
+import arindahills.lab1.domain.dto.CommentDto;
+import arindahills.lab1.domain.dto.PostDto;
+import arindahills.lab1.domain.dto.UserDto;
 import arindahills.lab1.service.CommentService;
 import arindahills.lab1.service.PostService;
 import arindahills.lab1.service.UserService;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.Path;
 import java.util.List;
 
 @RestController
@@ -28,6 +27,7 @@ public class UserController {
         return userService.findAll();
     }
     @GetMapping("/{id}")
+    @ExecutionTime
     public UserDto findById(@PathVariable long id){
         return userService.findById(id);
     }

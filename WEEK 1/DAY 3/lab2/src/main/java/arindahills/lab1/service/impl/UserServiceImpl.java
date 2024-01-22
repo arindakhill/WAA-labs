@@ -1,13 +1,12 @@
 package arindahills.lab1.service.impl;
 
 import arindahills.lab1.domain.User;
-import arindahills.lab1.domain.dto.response.PostDto;
-import arindahills.lab1.domain.dto.response.UserDto;
+import arindahills.lab1.domain.dto.PostDto;
+import arindahills.lab1.domain.dto.UserDto;
 import arindahills.lab1.repository.UserRepo;
 import arindahills.lab1.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

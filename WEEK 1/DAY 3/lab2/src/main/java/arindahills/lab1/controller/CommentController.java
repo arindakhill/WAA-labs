@@ -1,8 +1,6 @@
 package arindahills.lab1.controller;
 
-import arindahills.lab1.domain.Comment;
-import arindahills.lab1.domain.dto.response.CommentDto;
-import arindahills.lab1.domain.dto.response.PostDto;
+import arindahills.lab1.domain.dto.CommentDto;
 import arindahills.lab1.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

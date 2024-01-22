@@ -1,4 +1,4 @@
-package arindahills.lab1.domain.dto.response;
+package arindahills.lab1.domain.dto;
 
 import arindahills.lab1.domain.Post;
 import jakarta.persistence.JoinColumn;

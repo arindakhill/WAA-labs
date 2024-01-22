@@ -1,4 +1,4 @@
-package arindahills.lab1.domain.dto.response;
+package arindahills.lab1.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

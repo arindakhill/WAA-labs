@@ -1,7 +1,6 @@
 package arindahills.lab1.service;
 
-import arindahills.lab1.domain.Post;
-import arindahills.lab1.domain.dto.response.PostDto;
+import arindahills.lab1.domain.dto.PostDto;
 
 import java.util.List;
 
