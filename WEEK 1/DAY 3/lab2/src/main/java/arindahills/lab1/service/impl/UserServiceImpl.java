@@ -1,8 +1,8 @@
 package arindahills.lab1.service.impl;
 
 import arindahills.lab1.domain.User;
-import arindahills.lab1.domain.dto.PostDto;
-import arindahills.lab1.domain.dto.UserDto;
+import arindahills.lab1.domain.dto.response.PostDto;
+import arindahills.lab1.domain.dto.response.UserDto;
 import arindahills.lab1.repository.UserRepo;
 import arindahills.lab1.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -48,23 +48,4 @@ public class UserServiceImpl implements UserService {
                .collect(Collectors.toList());
     }
 
-   public List<UserDto> findUsersWithMoreThanNumberOfPosts(int count){
-        return userRepo.findUsersWithMoreThanNumberOfPosts(count)
-                .stream()
-                .map(user -> modelMapper.map(user,UserDto.class))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public void delete(long id) {
-        userRepo.deleteById(id);
-    }
-
-
-    public List<UserDto> findAllByAuthorWith(String title){
-        return userRepo.findAllByAuthorWith(title)
-                .stream()
-                .map(user -> modelMapper.map(user,UserDto.class))
-                .collect(Collectors.toList());
-    }
 }

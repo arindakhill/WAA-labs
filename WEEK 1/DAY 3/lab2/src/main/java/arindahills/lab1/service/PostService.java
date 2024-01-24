@@ -1,6 +1,7 @@
 package arindahills.lab1.service;
 
-import arindahills.lab1.domain.dto.PostDto;
+import arindahills.lab1.domain.Post;
+import arindahills.lab1.domain.dto.response.PostDto;
 
 import java.util.List;
 
@@ -19,5 +20,4 @@ public interface PostService {
     List<PostDto> findAllBy(String author);
 
     List<PostDto>findAllByAuthorWith(String text);
-    List<PostDto>findAllByTitle(String title);
 }

@@ -1,38 +1,18 @@
--- Users
-INSERT INTO users (name) VALUES
-                             ('Arinda'),
-                             ('Esther'),
-                             ('Ethan'),
-                             ('Hansel');
+INSERT INTO users (name) VALUES ('User 1'), ('User 2'), ('User 3');
 
--- Posts
 INSERT INTO post (title, content, author, user_id) VALUES
-                                                       ('First Post', 'Content for the first post', 'Author 1', 1),
-
-                                                       ('Second Post', 'Content for the second post', 'Author 2', 2),
-                                                       ('Another Post', 'Another content for the second post', 'Author 2', 2),
-
-                                                       ('Third Post', 'Content for the third post', 'Author 3', 3),
-                                                       ('Yet Another Post', 'More content for the third post', 'Author 3', 3),
-                                                       ('More Posts', 'Content for yet another post', 'Author 3', 3),
-
-                                                       ('Fourth Post', 'Content for the fourth post', 'Author 4', 4),
-                                                       ('Additional Post', 'Content for the additional post', 'Author 4', 4),
-                                                       ('Another One', 'Content for another one post', 'Author 4', 4),
-                                                       ('Final Post', 'Content for the final post', 'Author 4', 4);
-
--- Comments
-INSERT INTO comment (name, post_id) VALUES
-                                        ('Nice post!', 1),
-
-                                        ('Interesting thoughts.', 2),
-                                        ('I never thought of it that way.', 2),
-
-                                        ('Good read, thanks.', 3),
-                                        ('I have some questions.', 3),
-                                        ('Could you elaborate?', 3),
-
-                                        ('Agreed!', 4),
-                                        ('Not sure I understand.', 4),
-                                        ('Can you provide sources?', 4),
-                                        ('This is a great discussion.', 4);
+                                                        ('Title 1', 'Content for post 1', 'Author 1', 1),
+                                                        ('Title 2', 'Content for post 2', 'Author 1', 1),
+                                                        ('Title 3', 'Content for post 3', 'Author 1', 1),
+                                                        ('Title 4', 'Content for post 4', 'Author 1', 1),
+                                                        ('Title 5', 'Content for post 5', 'Author 1', 1),
+                                                        ('Title 6', 'Content for post 6', 'Author 2', 2),
+                                                        ('Title 7', 'Content for post 7', 'Author 2', 2),
+                                                        ('Title 8', 'Content for post 8', 'Author 2', 2),
+                                                        ('Title 9', 'Content for post 9', 'Author 2', 2),
+                                                        ('Title 10', 'Content for post 10', 'Author 2', 2),
+                                                        ('Title 11', 'Content for post 11', 'Author 3', 3),
+                                                        ('Title 12', 'Content for post 12', 'Author 3', 3),
+                                                        ('Title 13', 'Content for post 13', 'Author 3', 3),
+                                                        ('Title 14', 'Content for post 14', 'Author 3', 3),
+                                                        ('Title 15', 'Content for post 15', 'Author 3', 3);

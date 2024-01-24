@@ -1,7 +1,7 @@
 package arindahills.lab1.service.impl;
 
 import arindahills.lab1.domain.Post;
-import arindahills.lab1.domain.dto.PostDto;
+import arindahills.lab1.domain.dto.response.PostDto;
 import arindahills.lab1.exception.RecordNotFoundException;
 import arindahills.lab1.repository.PostRepo;
 import arindahills.lab1.service.PostService;
@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -63,12 +64,7 @@ public class PostServiceImpl implements PostService {
                 .collect(Collectors.toList());
     }
 
-public  List<PostDto>findAllByTitle(String title){
-        return postRepo.findAllByTitle(title)
-                .stream()
-                .map(post -> modelMapper.map(post,PostDto.class))
-                .collect(Collectors.toList());
-}
+
 
 
 }
