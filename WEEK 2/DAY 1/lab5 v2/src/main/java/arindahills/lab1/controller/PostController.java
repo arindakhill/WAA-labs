@@ -1,6 +1,5 @@
 package arindahills.lab1.controller;
 
-import arindahills.lab1.aop.annotation.ExecutionTime;
 import arindahills.lab1.domain.dto.PostDto;
 import arindahills.lab1.repository.PostRepo;
 import arindahills.lab1.service.PostService;
@@ -22,7 +21,6 @@ public class PostController {
     @Autowired
     PostRepo postRepo;
 @GetMapping
-@ExecutionTime
 public List<PostDto> findAll(){
     //System.out.println(posts);
 

@@ -19,8 +19,7 @@ public class ExceptionLoggingAspect {
     @Autowired
     private ExceptionRepository exceptionRepository;
 
-    //@AfterThrowing(pointcut = "within(arindahills.lab1.controller..*)", throwing = "ex")
-    @AfterThrowing(value = "@annotation(arindahills.lab1.aop.annotation.ExecutionTime)", throwing  ="ex")
+    @AfterThrowing(pointcut = "within(arindahills.lab1.controller..*)", throwing = "ex")
     public void logException(JoinPoint joinPoint, Throwable ex) {
         ExceptionRecord record = new ExceptionRecord();
         record.setTransactionId(UUID.randomUUID().toString());
