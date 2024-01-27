@@ -33,33 +33,39 @@ public class UserController {
     }
 
     @PostMapping
+    @ExecutionTime
     public void save(@RequestBody UserDto u){
         userService.save(u);
     }
 
     @GetMapping("/{id}/posts")
+    @ExecutionTime
     public List<PostDto> findAllPosts(@PathVariable long id){
         return userService.findAllPosts(id);
 
     }
 
     @GetMapping("/with-moreThan-one-post")
+    @ExecutionTime
     public List<UserDto>  findUsersWithMoreThanOnePost(){
         return userService.findUsersWithMoreThanOnePost();
     }
 
     @GetMapping("/with-moreThan-{count}-posts")
+    @ExecutionTime
     public List<UserDto>  findUsersWithMoreThanNumberOfPosts(@PathVariable int count){
         return userService.findUsersWithMoreThanNumberOfPosts(count);
     }
 
     @DeleteMapping("/{id}")
+    @ExecutionTime
     public void delete(@PathVariable long id){
         userService.delete(id);
     }
 
 
     @GetMapping("/filter")
+    @ExecutionTime
     public List<UserDto> findAllByAuthorWith(@RequestParam String text){
         return userService.findAllByAuthorWith(text);
     }

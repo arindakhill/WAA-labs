@@ -1,12 +1,16 @@
 package arindahills.lab1.service.impl;
 
 import arindahills.lab1.domain.Post;
+import arindahills.lab1.domain.User;
 import arindahills.lab1.domain.dto.PostDto;
 import arindahills.lab1.exception.RecordNotFoundException;
 import arindahills.lab1.repository.PostRepo;
+import arindahills.lab1.repository.UserRepo;
 import arindahills.lab1.service.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +21,9 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     PostRepo postRepo;
+
+    @Autowired
+    UserRepo userRepo;
 
     @Autowired
     ModelMapper modelMapper;
@@ -32,9 +39,24 @@ public class PostServiceImpl implements PostService {
         return modelMapper.map(postRepo.findById(id), PostDto.class);
     }
 
-    public void save(PostDto p){
+    public PostDto save(PostDto p){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String  username = authentication.getName();//get username of authenticated user
+
+        User user = userRepo.findByEmail(username).get(); //find user entity by username
+
         Post post = modelMapper.map(p,Post.class);
+
+        //Concatenate first name and last name
+        String authorName = user.getFirstname() + " " + user.getLastname();
+
+        //set the authorName in the postDto
+        post.setAuthor(authorName);
+
+        post.setUser(user); //Link user with the post
+
         postRepo.save(post);
+        return p;
     }
 
     public void delete(long id){

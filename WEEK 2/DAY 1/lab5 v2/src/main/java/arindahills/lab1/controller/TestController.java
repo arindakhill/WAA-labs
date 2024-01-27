@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1/diagnostics")
+
 public class TestController {
     @GetMapping("/test-exception")
-
+    @ExecutionTime
     public void testException() {
         throw new RuntimeException("Test Exception diagnostics");
     }

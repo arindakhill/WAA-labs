@@ -6,6 +6,10 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import arindahills.lab1.aop.annotation.ExecutionTime;
 
@@ -33,7 +37,20 @@ public class ExecutionTimeAspect {
         logger.setTransactionId(UUID.randomUUID().toString());
         logger.setDate(LocalDate.now());
         logger.setTime(LocalTime.now());
-        logger.setPrinciple("staticUser"); // Replace with actual user principle later
+
+
+        //  record.setPrinciple("staticUser"); // Replace with actual user principle later
+        //Get authentication object from the security context
+        // Fetch the authenticated user's username
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && !(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            logger.setPrinciple(currentUserName);
+        } else {
+            logger.setPrinciple("Anonymous");
+        }
+
+
         logger.setOperation(joinPoint.getSignature().toShortString() + " executed in " + executionTime + "ms");
 
         loggerRepository.save(logger);

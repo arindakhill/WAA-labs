@@ -1,5 +1,6 @@
 package arindahills.lab1.security;
 
+import arindahills.lab1.exception.InvalidTokenException;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
@@ -11,8 +12,8 @@ import java.util.stream.Collectors;
 public class JwtUtil {
 
     private final String secretKey = "UVs0fleuEW+uivbiIv/n0dSWZtc+byJ/BCdC+1Z76qmAjQ/8607LJZxZVt87ah99Z69TMlyCQLVzdbO5xnFmKw=="; // Replace with your secret key
-    private final long accessTokenValidity = 3600000; // 1 hour
-    private final long refreshTokenValidity = 86400000; // 24 hours
+    private final long accessTokenValidity = 86400000; // 24 hours
+    private final long refreshTokenValidity = 864000000; // 240 hours
 
     // Method to validate JWT token
     public boolean validateToken(String token) {
@@ -21,7 +22,8 @@ public class JwtUtil {
             return true;
         } catch (JwtException | IllegalArgumentException e) {
             // Log and handle the exception
-            return false;
+            throw new InvalidTokenException("Ivalid Access token");
+           // return false;
         }
     }
 
@@ -31,31 +33,31 @@ public class JwtUtil {
             Claims claims = Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(token).getBody();
             return !claims.containsKey("roles"); // Refresh token does not contain roles
         } catch (JwtException | IllegalArgumentException e) {
-            // Log and handle the exception
-            return false;
+            throw new InvalidTokenException("Ivalid token");
+           // return false;
         }
     }
 
     // Method to extract email from JWT token
     public String extractEmail(String token) {
-       // System.out.println(getClaims(token).getSubject());
+        System.out.println(getClaims(token).getSubject());
         return getClaims(token).getSubject();
     }
 
     // Method to extract roles from JWT token
     public List<String> extractRoles(String token) {
-        //System.out.println(getClaims(token).get("roles", List.class));
+        System.out.println(getClaims(token).get("roles", List.class));
         return getClaims(token).get("roles", List.class);
 
     }
 
     private Claims getClaims(String token) {
-//        System.out.println( Jwts.parser()
-//                .setSigningKey(secretKey.getBytes())
-//                .parseClaimsJws(token)
-//                .getBody()
-//                .toString()
-//        );
+        System.out.println( Jwts.parser()
+                .setSigningKey(secretKey.getBytes())
+                .parseClaimsJws(token)
+                .getBody()
+                .toString()
+        );
 
 
         return Jwts.parser()
