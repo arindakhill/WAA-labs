@@ -16,17 +16,17 @@ public class CustomExceptionHandler {
     public ResponseEntity<?> handleAuthenticationException(AuthenticationException e) {
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(new ErrorResponse("Invalid username or password"));
+                .body(new ErrorResponse("Invalid username or Password"));
     }
 
     // Define ErrorResponse class or use an existing one
     @Data
     @NoArgsConstructor
     static class ErrorResponse {
-        private String message;
+        private String LoginError;
 
         public ErrorResponse(String message) {
-            this.message = message;
+            this.LoginError = message;
         }
 
 

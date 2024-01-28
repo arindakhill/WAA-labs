@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
@@ -22,7 +23,7 @@ public class JwtUtil {
             return true;
         } catch (JwtException | IllegalArgumentException e) {
             // Log and handle the exception
-            throw new InvalidTokenException("Ivalid Access token");
+            throw new InvalidTokenException("Invalid Access token");
            // return false;
         }
     }
@@ -40,24 +41,24 @@ public class JwtUtil {
 
     // Method to extract email from JWT token
     public String extractEmail(String token) {
-        System.out.println(getClaims(token).getSubject());
+       // System.out.println(getClaims(token).getSubject());
         return getClaims(token).getSubject();
     }
 
     // Method to extract roles from JWT token
     public List<String> extractRoles(String token) {
-        System.out.println(getClaims(token).get("roles", List.class));
+       // System.out.println(getClaims(token).get("roles", List.class));
         return getClaims(token).get("roles", List.class);
 
     }
 
     private Claims getClaims(String token) {
-        System.out.println( Jwts.parser()
-                .setSigningKey(secretKey.getBytes())
-                .parseClaimsJws(token)
-                .getBody()
-                .toString()
-        );
+//        System.out.println( Jwts.parser()
+//                .setSigningKey(secretKey.getBytes())
+//                .parseClaimsJws(token)
+//                .getBody()
+//                .toString()
+//        );
 
 
         return Jwts.parser()
@@ -105,6 +106,26 @@ public class JwtUtil {
         return null;
     }
 
+    // Extract expiration date from token
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+
+
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+    }
+
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    }
+
+    // Check if the token has expired
+    private Boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
 
 
 }

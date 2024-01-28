@@ -33,6 +33,9 @@ public class SecurityConfiguration {
     @Autowired
     CustomExceptionHandler customExceptionHandler;
 
+    @Autowired
+    CustomAccessDeniedHandler customAccessDeniedHandler;
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
@@ -72,7 +75,8 @@ public class SecurityConfiguration {
               // .formLogin(formLogin->formLogin.failureHandler((AuthenticationFailureHandler) customExceptionHandler))
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class) // Add the JWT Token Filter
                 .exceptionHandling()
-                .authenticationEntryPoint(customAuthenticationEntryPoint)
+                    .authenticationEntryPoint(customAuthenticationEntryPoint)
+                    .accessDeniedHandler(customAccessDeniedHandler);
                 ;
 
 

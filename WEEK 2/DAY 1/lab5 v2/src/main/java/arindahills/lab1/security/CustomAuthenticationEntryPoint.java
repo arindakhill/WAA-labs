@@ -17,7 +17,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
                                         AuthenticationException authException) throws IOException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json;charSet=UTF-8");
-        response.getWriter().write("{\"error\": \"Invalid username or password\"}");
+        response.getWriter().write("{\"Unauthorized Access\": \"Invalid credentials (JWT token) for accessing resource\"}");
     }
 }
 
