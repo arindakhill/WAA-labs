@@ -48,6 +48,8 @@ public class AuthServiceImpl implements AuthService {
         return new LoginResponse(accessToken, refreshToken);
     }
 
+    //could have used try and caugtht the bad credentials exception here...
+
     @Override
     public LoginResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         // Validate the refresh token
