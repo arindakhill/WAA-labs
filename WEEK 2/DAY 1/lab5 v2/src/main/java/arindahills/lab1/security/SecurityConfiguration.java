@@ -49,28 +49,28 @@ public class SecurityConfiguration {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Use stateless session
                 .and()
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/api/v1/authenticate/**").permitAll() // Allow all requests to the authentication endpoint
+                        .requestMatchers("/api/v1/posts/**").permitAll() // Allow all requests to the authentication endpoint
 
 
-                        .requestMatchers(HttpMethod.GET,"/api/v1/diagnostics/**").hasRole("ADMIN")
-
-                        .requestMatchers(HttpMethod.GET,"/api/v1/posts").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/api/v1/posts/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.POST,"/api/v1/posts/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.PUT,"/api/v1/posts/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.DELETE,"/api/v1/posts/**").hasRole("USER")
-
-                        .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.POST,"/api/v1/users/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.PUT,"/api/v1/users/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,"/api/v1/users/**").hasRole("USER")
-
-                        .requestMatchers(HttpMethod.GET,"/api/v1/comments/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.POST,"/api/v1/comments/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.PUT,"/api/v1/comments/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.DELETE,"/api/v1/comments/**").hasRole("USER")
-
-
+//                        .requestMatchers(HttpMethod.GET,"/api/v1/diagnostics/**").hasRole("ADMIN")
+//
+//                        .requestMatchers(HttpMethod.GET,"/api/v1/posts").hasRole("ADMIN")
+//                        .requestMatchers(HttpMethod.GET,"/api/v1/posts/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.POST,"/api/v1/posts/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.PUT,"/api/v1/posts/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.DELETE,"/api/v1/posts/**").hasRole("USER")
+//
+//                        .requestMatchers(HttpMethod.GET,"/api/v1/users/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.POST,"/api/v1/users/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.PUT,"/api/v1/users/**").hasRole("ADMIN")
+//                        .requestMatchers(HttpMethod.DELETE,"/api/v1/users/**").hasRole("USER")
+//
+//                        .requestMatchers(HttpMethod.GET,"/api/v1/comments/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.POST,"/api/v1/comments/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.PUT,"/api/v1/comments/**").hasRole("USER")
+//                        .requestMatchers(HttpMethod.DELETE,"/api/v1/comments/**").hasRole("USER")
+//
+//
                         .anyRequest().authenticated() // All other requests must be authenticated
                 )
               // .formLogin(formLogin->formLogin.failureHandler((AuthenticationFailureHandler) customExceptionHandler))

@@ -28,7 +28,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // Skip JWT check for login requests or other non-protected endpoints
-        if (!requiresAuthentication(request.getRequestURI())) {
+        if (requiresAuthentication(request.getRequestURI())) {
            // System.out.println(!requiresAuthentication(request.getRequestURI()));
             filterChain.doFilter(request, response);
             return;
