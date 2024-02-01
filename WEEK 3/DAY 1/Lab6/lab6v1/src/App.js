@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <div className="container">
         <header className="App-header">
-          <h1>Dashboard</h1>
+          <h1>Posts Dashboard</h1>
         </header>
         <Dashboard />
       </div>

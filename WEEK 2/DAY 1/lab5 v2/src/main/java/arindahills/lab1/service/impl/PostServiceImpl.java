@@ -40,20 +40,20 @@ public class PostServiceImpl implements PostService {
     }
 
     public PostDto save(PostDto p){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String  username = authentication.getName();//get username of authenticated user
+      //  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+      //  String  username = authentication.getName();//get username of authenticated user
 
-        User user = userRepo.findByEmail(username).get(); //find user entity by username
+       // User user = userRepo.findByEmail(username).get(); //find user entity by username
 
         Post post = modelMapper.map(p,Post.class);
 
         //Concatenate first name and last name
-        String authorName = user.getFirstname() + " " + user.getLastname();
+      //  String authorName = user.getFirstname() + " " + user.getLastname();
 
         //set the authorName in the postDto
-        post.setAuthor(authorName);
+     //   post.setAuthor(authorName);
 
-        post.setUser(user); //Link user with the post
+      //  post.setUser(user); //Link user with the post
 
         postRepo.save(post);
         return p;
