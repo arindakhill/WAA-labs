@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { fetchPosts } from './services/PostService';
 import Posts from './Posts';
