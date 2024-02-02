@@ -9,6 +9,5 @@ const deletePost = (id) => axios.delete(`${API_URL}/posts/${id}`);
 const addPost = (post) => axios.post(`${API_URL}/posts`, post);
 const updatePost = (id, post) => axios.put(`${API_URL}/posts/${id}`,post);
 // Optional: Add comment functionality
-const addComment = (postId, comment) => axios.post(`${API_URL}/comments/posts/${postId}`, comment);
-
-export { fetchPosts, fetchPostById, deletePost, addPost, addComment, updatePost };
+const getComment = (postId) => axios.post(`${API_URL}/posts/${postId}/comments`);
+export { fetchPosts, fetchPostById, deletePost, addPost, getComment, updatePost };

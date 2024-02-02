@@ -1,1 +1,20 @@
-IGNORE/
+# Ignore compiled Java classes
+*.class
+
+# Ignore log files
+*.log
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore IDE-specific files (e.g., IntelliJ IDEA)
+.idea/
+
+# Ignore Spring Boot-specific files
+target/
+
+# Ignore macOS system files (optional, use only if needed)
+.DS_Store
+
+# Ignore generated files (adjust based on your project)
+/generated/

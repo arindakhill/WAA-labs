@@ -49,7 +49,7 @@ public class SecurityConfiguration {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Use stateless session
                 .and()
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/api/v1/posts/**").permitAll() // Allow all requests to the authentication endpoint
+                        .requestMatchers("/api/v1/**").permitAll() // Allow all requests to the authentication endpoint
 
 
 //                        .requestMatchers(HttpMethod.GET,"/api/v1/diagnostics/**").hasRole("ADMIN")

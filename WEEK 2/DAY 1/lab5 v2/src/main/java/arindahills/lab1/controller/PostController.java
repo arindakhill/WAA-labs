@@ -1,6 +1,7 @@
 package arindahills.lab1.controller;
 
 import arindahills.lab1.aop.annotation.ExecutionTime;
+import arindahills.lab1.domain.dto.CommentDto;
 import arindahills.lab1.domain.dto.PostDto;
 import arindahills.lab1.repository.PostRepo;
 import arindahills.lab1.service.PostService;
@@ -64,6 +65,12 @@ public List<PostDto>findAllByAuthorWith(@RequestParam String text){
 @ExecutionTime
     public  List<PostDto>findAllByTitle(@PathVariable("title") String title){
     return postService.findAllByTitle(title);
+}
+
+@GetMapping("{id}/comments")
+    @ExecutionTime
+    public List<CommentDto> findCommentsByPostId(@PathVariable("id") Long id){
+    return postService.findCommentsByPostId(id);
 }
 
 }

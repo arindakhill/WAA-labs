@@ -1,6 +1,7 @@
 package arindahills.lab1.service;
 
 import arindahills.lab1.domain.Post;
+import arindahills.lab1.domain.dto.CommentDto;
 import arindahills.lab1.domain.dto.PostDto;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface PostService {
 
     List<PostDto>findAllByAuthorWith(String text);
     List<PostDto>findAllByTitle(String title);
+
+    List<CommentDto> findCommentsByPostId(Long id);
 }

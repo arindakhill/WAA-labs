@@ -2,6 +2,7 @@ package arindahills.lab1.service.impl;
 
 import arindahills.lab1.domain.Post;
 import arindahills.lab1.domain.User;
+import arindahills.lab1.domain.dto.CommentDto;
 import arindahills.lab1.domain.dto.PostDto;
 import arindahills.lab1.exception.RecordNotFoundException;
 import arindahills.lab1.repository.PostRepo;
@@ -91,6 +92,14 @@ public  List<PostDto>findAllByTitle(String title){
                 .map(post -> modelMapper.map(post,PostDto.class))
                 .collect(Collectors.toList());
 }
+
+
+   public  List<CommentDto> findCommentsByPostId(Long id){
+        return postRepo.findCommentsbyPostId(id)
+                .stream()
+                .map(comment -> modelMapper.map(comment, CommentDto.class))
+                .collect(Collectors.toList());
+    }
 
 
 }
