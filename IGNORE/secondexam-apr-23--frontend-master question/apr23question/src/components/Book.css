@@ -1,0 +1,40 @@
+/* Book.css */
+
+.book-container {
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin: 0 auto 16px auto; /* Center the book in the list and add space below */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    display: flex; /* Use flexbox to layout the title and price */
+    align-items: center; /* Vertically center the contents */
+    justify-content: space-between; /* Space out title and price */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out; /* Transition for hover effects */
+    max-width: 600px; /* Set a max-width for larger screens */
+  }
+  
+  .book-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+  }
+  
+  /* Title styling */
+  .book-title {
+    font-size: 1.4em; /* Slightly larger font size for titles */
+    color: #333;
+    margin: 0; /* Reset any margins */
+    flex-grow: 1; /* Allow title to fill the space and push price to the right */
+  }
+  
+  /* Price styling */
+  .book-price {
+    color: #666;
+    font-size: 1.2em; /* Slightly larger font size for prices */
+    font-weight: bold; /* Bold for price to stand out */
+    padding-left: 16px; /* Space between title and price */
+  }
+  
+  /* Remove view-details class if not needed */
+  

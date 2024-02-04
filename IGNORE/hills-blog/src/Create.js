@@ -21,6 +21,8 @@ const Create = () => {
             body:JSON.stringify(blog)
         }
         ).then(()=>alert('New post added'))
+
+        
         .then(()=>{
             setTitle('')
             setAuthor('ethan')

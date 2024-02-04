@@ -8,6 +8,8 @@ const Dashboard = () => {
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
 
+
+
   // useEffect hook to fetch posts when the component mounts
   useEffect(() => {
     refreshPosts();
@@ -26,6 +28,7 @@ const Dashboard = () => {
   // Function to select a post and show its details
   const selectPost = (post) => {
     setSelectedPost(post);
+    
   };
 
 

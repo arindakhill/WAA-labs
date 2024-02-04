@@ -1,0 +1,79 @@
+/* BooksList.css */
+
+/* Container for the filter inputs and button */
+.filter-container {
+    display: flex;
+    justify-content: center; /* Center the filter bar */
+    gap: 10px; /* Spacing between filter inputs */
+    margin-bottom: 20px; /* Space below the filter bar */
+    padding: 10px; /* Padding inside the filter bar */
+  }
+  
+  /* Style for filter inputs */
+  .filter-container input[type='text'],
+  .filter-container input[type='number'] {
+    padding: 5px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    line-height: 1.5; /* Taller line-height for better readability */
+  }
+  
+  /* Style for the filter button */
+  .filter-container button {
+    padding: 5px 10px;
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #1054b5; /* Blue background color */
+    color: white; /* White text */
+    cursor: pointer; /* Cursor indicates clickable */
+    transition: background-color 0.3s ease; /* Transition for a hover effect */
+  }
+  
+  .filter-container button:hover {
+    background-color: #0d3c8c; /* Darker blue on hover */
+  }
+  
+  /* Improved grid layout for books */
+  .books-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Individual book item style */
+  .book-item {
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.2s ease-in-out; /* Smooth shadow transition */
+    padding: 16px;
+    margin: 10px 0;
+    width: 80%; /* Adjust width to your preference */
+    background-color: #fff; /* White background */
+    text-align: left;
+  }
+  
+  /* Style for the book link - removes underline and adjusts color */
+  .book-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .book-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover for a 'pop-out' effect */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .filter-container {
+      flex-direction: column; /* Stack filter inputs vertically */
+      align-items: center; /* Align inputs in the center */
+    }
+  
+    .filter-container button {
+      width: 100%; /* Full width button on smaller screens */
+      margin-top: 10px; /* Space between the last input and the button */
+    }
+  }
+  

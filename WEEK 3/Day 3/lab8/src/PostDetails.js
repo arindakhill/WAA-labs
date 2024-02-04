@@ -5,7 +5,9 @@ import { updatePost } from './services/PostService';
 import EditPost from './EditPost';
 import Comment from './Comment';
 
+
 const PostDetails = ({ post, refreshPosts }) => {
+
 
 
   //edit handler
@@ -29,6 +31,7 @@ const PostDetails = ({ post, refreshPosts }) => {
       .then(() => {
         alert('Post deleted successfully');
         refreshPosts(); // Refresh the list of posts
+        
       })
       .catch(error => console.error('Error deleting post:', error));
     }

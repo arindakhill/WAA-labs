@@ -1,0 +1,80 @@
+/* src/components/Sections.css */
+
+.sections-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 0.5em;
+  }
+  
+  h2 {
+    margin-bottom: 1em;
+  }
+  
+  .section-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .section-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 60%; /* Adjust width to your liking */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .section-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .section-info {
+    margin-bottom: 10px;
+  }
+  
+  .section-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    gap: 10px; /* Add space between buttons */
+  }
+  
+  .button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .details-button {
+    background-color: #007bff;
+  }
+  
+  .details-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .edit-button {
+    background-color: #28a745;
+  }
+  
+  .edit-button:hover {
+    background-color: #1e7e34;
+  }
+  
+  @media (max-width: 768px) {
+    .section-item {
+      width: 80%;
+    }
+  }
+  
